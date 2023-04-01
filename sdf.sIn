@@ -1,0 +1,39 @@
+Public Class Form1
+Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles
+RadioButton1.CheckedChanged
+Button1.Enabled = RadioButton1.Checked
+End Sub
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+If CheckBox1.Checked Then
+MessageBox.Show("A+")
+End If
+If CheckBox2.Checked Then
+MessageBox.Show("B+")
+End If
+If CheckBox3.Checked Then
+MessageBox.Show("A-")
+End If
+If CheckBox4.Checked Then
+MessageBox.Show("B-")
+End If
+If CheckBox5.Checked Then
+MessageBox.Show("AB+")
+End If
+If CheckBox6.Checked Then
+MessageBox.Show("0+")
+End If
+End Sub
+Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+TextBox10.Text = OpenFileDialog1.FileName
+PictureBox1.ImageLocation = TextBox10.Text
+End If
+End Sub
+Private Sub TextBox3_Validating(sender As Object, e As CancelEventArgs) Handles TextBox3.Validating
+If String.IsNullOrEmpty(TextBox3.Text.Trim) Then
+ErrorProvider1.SetError(TextBox3, "Name Is Required")
+Else
+ErrorProvider1.SetError(TextBox3, String.Empty)
+End If
+End Sub
+End Class
